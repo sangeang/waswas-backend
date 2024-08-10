@@ -1,13 +1,11 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import { analyzeRoutes } from "./routes/analyze";
+import { HonoEnv } from "./types/env";
+import { logger } from "hono/logger";
 
-type Bindings = {
-  [key in keyof CloudflareBindings]: CloudflareBindings[key]
-}
+const app = new Hono<HonoEnv>();
 
-const app = new Hono<{ Bindings: Bindings }>()
+app.use(logger());
+app.route("/", analyzeRoutes);
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-
-export default app
+export default app;
