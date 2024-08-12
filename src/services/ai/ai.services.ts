@@ -2,7 +2,7 @@ import { GenerationConfig } from "@google/generative-ai";
 import { getModel } from "./ai.model";
 
 const generationConfig: GenerationConfig = {
-  temperature: 1,
+  temperature: 0.7,
   topP: 0.95,
   topK: 64,
   maxOutputTokens: 8192,

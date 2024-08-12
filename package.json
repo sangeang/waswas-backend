@@ -1,5 +1,5 @@
 {
-  "name": "scam-backend",
+  "name": "waswas-backend",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",

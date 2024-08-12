@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "scam-backend"
+name = "waswas-backend"
 main = "src/index.ts"
 compatibility_date = "2024-07-01"
 
