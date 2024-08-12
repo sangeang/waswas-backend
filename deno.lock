@@ -21,5 +21,13 @@
       }
     }
   },
-  "remote": {}
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@hono/hono@^4.5.5",
+      "jsr:@std/assert@1",
+      "jsr:@std/encoding@^1.0.1",
+      "npm:@google/generative-ai@^0.16.0"
+    ]
+  }
 }

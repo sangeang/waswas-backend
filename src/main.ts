@@ -7,4 +7,4 @@ const app = new Hono();
 app.use(logger());
 app.route("/", analyzeRoutes);
 
-export default app;
+Deno.serve(app.fetch);
