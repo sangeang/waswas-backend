@@ -5,7 +5,8 @@ This is the main backend repository for the Waswas scam analyzer.
 
 ## Tech Stack
 
-- GeminiAPI
+- Google GenAI Gemini
+- Hono
 - Bun
 - NodeJS
 - Git
