@@ -1,33 +1,15 @@
-# prod
-dist/
+# Created by https://www.toptal.com/developers/gitignore/api/deno
+# Edit at https://www.toptal.com/developers/gitignore?templates=deno
 
-# dev
-.yarn/
-!.yarn/releases
-.vscode/*
-!.vscode/launch.json
-!.vscode/*.code-snippets
-.idea/workspace.xml
-.idea/usage.statistics.xml
-.idea/shelf
+### Deno ###
+/.idea/
+/.vscode/
 
-# deps
-node_modules/
-.wrangler
+/node_modules
 
-# env
 .env
-.env.production
-.dev.vars
+*.orig
+*.pyc
+*.swp
 
-# logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# misc
-.DS_Store
+# End of https://www.toptal.com/developers/gitignore/api/deno

@@ -1,5 +1,5 @@
 import { GenerationConfig } from "@google/generative-ai";
-import { getModel } from "./ai.model";
+import { model } from "./ai_model.ts";
 
 const generationConfig: GenerationConfig = {
   temperature: 0.7,
@@ -9,10 +9,6 @@ const generationConfig: GenerationConfig = {
   responseMimeType: "text/plain",
 };
 
-export const getChatSession = (apiKey: string) => {
-  const model = getModel(apiKey);
-
-  return model.startChat({
-    generationConfig,
-  });
-};
+export const chatSession = model.startChat({
+  generationConfig,
+});

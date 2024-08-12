@@ -1,4 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GEMINI_API_KEY } from "@lib/env.ts";
 
 const systemPrompt = `
 You are a Scam analyzer. Analyze messages / images / mail to you and deduce whether it's a scam or not.
@@ -28,11 +29,9 @@ Resources:
 - (List of a valid resources that can be accessed to learn more about the scam, how to avoid it, etc. Use the attached image language)
 `;
 
-export const getModel = (apiKey: string) => {
-  const genAI = new GoogleGenerativeAI(apiKey);
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
-  return genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-    systemInstruction: systemPrompt,
-  });
-};
+export const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash",
+  systemInstruction: systemPrompt,
+});

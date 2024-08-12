@@ -1,9 +1,8 @@
-import { fileToBase64 } from "@/lib/file";
-import { getChatSession } from "@/services/ai";
-import { HonoEnv } from "@/types/env";
-import { Hono } from "hono";
+import { Hono } from "@hono/hono";
+import { chatSession } from "@services/ai/mod.ts";
+import { encodeBase64 } from "@std/encoding";
 
-export const analyzeRoutes = new Hono<HonoEnv>();
+export const analyzeRoutes = new Hono();
 
 const MB = 1024 * 1024;
 
@@ -18,14 +17,15 @@ analyzeRoutes.post("/analyze", async (c) => {
   if (!image.type.startsWith("image/"))
     return c.json({ error: "Invalid image type" }, 400);
 
-  let message: String = "";
-  const chatSession = getChatSession(c.env.GEMINI_API_KEY);
+  const encodedImage = encodeBase64(await image.arrayBuffer());
+
+  let message: string = "";
 
   await chatSession
     .sendMessage([
       {
         inlineData: {
-          data: await fileToBase64(image),
+          data: encodedImage,
           mimeType: image.type,
         },
       },
