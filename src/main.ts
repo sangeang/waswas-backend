@@ -8,4 +8,3 @@ app.use(logger());
 app.route("/", analyzeRoutes);
 
 Deno.serve(app.fetch);
-
